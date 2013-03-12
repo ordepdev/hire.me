@@ -1,0 +1,18 @@
+<div id="education">
+<% if @educations.empty? %>
+    <p>You don't have any education information. Add new one's above.</p>
+<% else %>
+    <h3>Your education</h3>
+        <% @educations.each do |education| %>
+            <div>
+                <b><%= education.school %></b> - <i><%= education.title %> em <%= education.course %></i>
+                <% if education.graduation_date.nil? %> 
+                    (a decorrer)
+                <% else %>
+                    em <%= education.graduation_date %>
+                <% end %>      
+                <%= link_to 'Destroy',education, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+            </div>
+        <% end %>
+<% end %>
+</div> 

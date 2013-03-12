@@ -1,0 +1,73 @@
+<% cities = { "Viana" => "Viana", "Castelo Branco" => "Castelo Branco" , "Braga" => "Braga", "Porto" => "Porto", "Vila Real" => "Vila Real", "Bragança" => "Bragança", "Aveiro" => "Aveiro", "Viseu" => "Viseu", "Guarda" => "Guarda", "Coimbra" => "Coimbra", "Leiria" => "Leiria", "Santarém" => "Santarém", "Portalegre" => "Portalegre", "Lisboa" => "Lisboa", "Évora" => "Évora", "Setúbal" => "Setúbal", "Beja" => "Beja", "Faro" => "Faro", "Madeira" => "Madeira", "Açores" => "Açores" }%>
+
+<h2>Edit your personal info</h2>
+
+<%= form_for(@profile, :html => {:class => 'form-inline', :method => :put}) do |profile_form| %>
+
+  <div class="control-group">
+    <%= profile_form.label :first_name %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-user"></i></span>
+        <%= profile_form.text_field :first_name %>
+      </div>
+      <p class="text-info">Tell us your first...</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+  <%= profile_form.label :last_name %>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-user"></i></span>
+      <%= profile_form.text_field :last_name %> 
+      </div>
+      <p class="text-info">and last name.</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+  <%= profile_form.label :birthday %>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-gift"></i></span>
+      <%= profile_form.text_field :birthday, :class => 'birthday' %>
+      </div>
+      <p class="text-info">Give us your birthday. Just to send an aniversary e-mail (:</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+  <%= profile_form.label :location %>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-globe"></i></span>
+  <%= profile_form.select(:location, options_for_select(cities, current_user.profile.location), {:prompt => 'Where are you from?'}) %>
+      </div>
+      <p class="text-info">Tell the companies where do you live.</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+  <%= profile_form.label :photo %><br/>
+  <%= image_tag big_avatar_url(current_user) %>
+    <div class="controls">
+      <%= link_to "Pick another ava", "http://gravatar.com", :class => 'btn btn-success',:target => '_blank' %>
+      <p class="text-info">Choose a nice one.</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+  <%= profile_form.label :motivation %>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-bullhorn"></i></span>
+      <%= profile_form.text_field :motivation %>            
+      </div>
+      <p class="text-info">In a few words, describe your strengths!</p>
+    </div>
+  </div>
+
+  <div><%= profile_form.submit "Update", :class => 'btn btn-success' %></div>      
+
+<% end %>

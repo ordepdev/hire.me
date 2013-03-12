@@ -1,0 +1,13 @@
+<div id="skills">
+<% if @skills.empty? %>
+  <p>You don't have any skills. Add new one's above.</p>
+<% else %>
+  <h3>Your skills:</h3>
+  <% @skills.each do |skill| %>
+    <div>
+	    <b><%= skill.name %></b> 
+	    - <%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %>
+	</div>
+  <% end %>
+<% end %>
+</div> 
