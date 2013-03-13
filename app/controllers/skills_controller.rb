@@ -34,4 +34,8 @@ class SkillsController < ApplicationController
       format.js
     end
   end
+
+  def side_bar
+    @users_with_same_skills = Skill.users_with_same_skills
+  end
 end

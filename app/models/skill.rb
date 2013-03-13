@@ -24,12 +24,14 @@ class Skill < ActiveRecord::Base
   		# }
 	end
 
-	def users_with_same_skill(skill)
-		Skill.where("name = #{skill}").map(&:user_id)
+	def users_with_same_skills
+		users = []
+		Skill.where("user_id = ?", user_id).all.each { |skill|
+			users << Skill.where("name = ?", skill).map(&:user_id)
+		}
 		# users = ...
 		# users.each {|user|}
 		# 	Profile.find_by_user_id(user.id)
-		# ...
 		# ...
 	end
 end

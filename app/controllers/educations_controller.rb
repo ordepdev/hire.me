@@ -26,4 +26,10 @@ class EducationsController < ApplicationController
       format.js
     end
   end
+
+  def side_bar
+    @users_with_same_school = Profile.users_with_same_school
+    @users_with_same_course = Profile.users_with_same_course
+    @users_with_same_graduation_date = Profile.users_with_same_graduation_date
+  end
 end

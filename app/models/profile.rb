@@ -25,6 +25,22 @@ class Profile < ActiveRecord::Base
 		  Skill.find_all_by_user_id(user_id).map(&:name).join(', ')
   	end
 
+    def users_from_same_location
+      Profile.where("location = ?", location).map(&:user_id)
+    end
+
+    def top_locations
+      Profile.count(:group => 'location', :limit => 5)
+    end
+
+    def random_motivation
+      Profile.all_filtered.sample(1)
+    end
+
+    def birthdays
+      Profile.where("birthday = ?", Date.today)
+    end
+
     def self.educations(id)
       Education.order("graduation_date DESC").where("graduation_date is null and user_id = ?", id) +
        Education.order("graduation_date DESC").where("graduation_date is not null and user_id = ?", id)
