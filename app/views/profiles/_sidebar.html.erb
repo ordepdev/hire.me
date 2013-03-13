@@ -1,0 +1,17 @@
+<div id="school">
+	<% @users_with_same_school.each do |user| %>
+		<%= user.id %>
+	<% end %>
+</div>
+
+<div id="course">
+	<% @users_with_same_course.each do |user| %>
+		<%= user.id %>
+	<% end %>
+</div>
+
+<div id="graduation">
+	<% @users_with_same_graduation_date.each do |user| %>
+		<%= user.id %>
+	<% end %>
+</div>
