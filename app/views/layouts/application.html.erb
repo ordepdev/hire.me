@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Hire me!" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+    <style type="text/css">
+    
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
+</html>

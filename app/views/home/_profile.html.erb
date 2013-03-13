@@ -1,0 +1,40 @@
+<div>
+<% if @profile.photo.blank? %>
+	<%= image_tag big_avatar_url(@user) %>
+<% else %>
+
+<% end %>
+</div>
+
+<div>
+	<h3><%= @profile.motivation %></h3>
+</div>
+
+<div>
+	<p>
+		<%= @profile.full_name %>
+		<% if @profile.birthday.present? %>
+			, <%= @profile.age %> 
+		<% end %>
+		<% if @profile.location.present? %>
+			, <%= @profile.location %>
+		<% end %>
+	</p>	
+</div>
+
+<div>
+	<p><%= @profile.skills %> </p>
+</div>
+
+<div>
+	<% @profile.educations.each do |education| %>
+	<div>
+		<b><%= education.school %></b> - <i><%= education.title %> em <%= education.course %></i>
+		<% if education.graduation_date.nil? %> 
+			(a decorrer)
+		<% else %>
+			em <%= education.graduation_date %>
+		<% end %>
+	</div>	
+	<% end %>
+</div>

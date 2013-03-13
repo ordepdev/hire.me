@@ -1,0 +1,23 @@
+<h3>Add new education</h3>
+
+<%= form_for :education, :url => { :action => 'create'}, :html => { :class => 'frm-horizontal'} do |f| %>
+    <div>
+        <%= f.label :school %>
+        <%= f.text_field :school %>
+    </div>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :course %>
+        <%= f.text_field :course %>
+    </div>
+    <div>
+        <%= f.label :graduation_date, 'Graduation year' %>
+        <%= f.text_field :graduation_date %>
+    </div>
+    <%= f.submit "Add", :class => 'btn btn-success' %>
+<% end %>
+
+<%= render :partial => 'education' %>

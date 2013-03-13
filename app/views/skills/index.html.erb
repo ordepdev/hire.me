@@ -1,0 +1,8 @@
+<h3>Add new skills</h3>
+
+<%= form_for :skill, :url => { :action => 'create' }, :html => {:class => 'form-inline'} do |f| %>
+  <%= f.text_field :name, :html => { :placeholder => 'separated by comma'} %>
+  <%= f.submit "Add", :class => 'btn btn-success' %>
+<% end %>
+
+<%= render :partial => 'skills' %>
