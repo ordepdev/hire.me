@@ -30,5 +30,6 @@ class Skill < ActiveRecord::Base
 		# users.each {|user|}
 		# 	Profile.find_by_user_id(user.id)
 		# ...
+		# ...
 	end
 end
