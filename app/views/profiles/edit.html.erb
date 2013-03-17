@@ -1,5 +1,7 @@
 <% cities = { "Viana" => "Viana", "Castelo Branco" => "Castelo Branco" , "Braga" => "Braga", "Porto" => "Porto", "Vila Real" => "Vila Real", "Bragança" => "Bragança", "Aveiro" => "Aveiro", "Viseu" => "Viseu", "Guarda" => "Guarda", "Coimbra" => "Coimbra", "Leiria" => "Leiria", "Santarém" => "Santarém", "Portalegre" => "Portalegre", "Lisboa" => "Lisboa", "Évora" => "Évora", "Setúbal" => "Setúbal", "Beja" => "Beja", "Faro" => "Faro", "Madeira" => "Madeira", "Açores" => "Açores" }%>
 
+
+
 <h2>Edit your personal info</h2>
 
 <%= form_for(@profile, :html => {:class => 'form-inline', :method => :put}) do |profile_form| %>
@@ -69,5 +71,9 @@
   </div>
 
   <div><%= profile_form.submit "Update", :class => 'btn btn-success' %></div>      
+<% end %>
 
+<h3>People from your location</h3>
+<% @users_from_same_location.each do |user| %>
+<%= user.full_name %>
 <% end %>

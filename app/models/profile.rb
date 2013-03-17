@@ -29,15 +29,15 @@ class Profile < ActiveRecord::Base
       Profile.where("location = ?", location).map(&:user_id)
     end
 
-    def top_locations
+    def self.top_locations
       Profile.count(:group => 'location', :limit => 5)
     end
 
-    def random_motivation
-      Profile.all_filtered.sample(1)
+    def self.random_motivation
+      Profile.all_filtered.sample(1).map(&:motivation).first
     end
 
-    def birthdays
+    def self.birthdays
       Profile.where("birthday = ?", Date.today)
     end
 

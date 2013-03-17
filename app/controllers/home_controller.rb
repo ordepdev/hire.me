@@ -29,6 +29,7 @@ class HomeController < ApplicationController
 
 	def developers
 		@profiles = Profile.all_filtered
+		@random_moto = Profile.random_motivation
 	end
 
 	def jobs

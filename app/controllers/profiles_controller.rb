@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = Profile.find_by_user_id(current_user.id)
+    @users_from_same_location = @profile.users_from_same_location    
   end
 
   # PUT /profiles/1
