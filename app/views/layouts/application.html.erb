@@ -11,7 +11,10 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
     <style type="text/css">
-    
+      .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+        width: 940px;
+      }
+
       /* Custom container */
       .container-narrow {
         margin: 0 auto;
@@ -57,10 +60,10 @@
       <div class="container">
         <div class="content">
            <div class="row">
-            <div class="span12">
+              <div class="span10">
               <%= render 'layouts/messages' %>
               <%= yield %>
-            </div>
+              </div>
           </div>
           <footer>
           </footer>

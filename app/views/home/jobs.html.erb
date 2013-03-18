@@ -1,4 +1,7 @@
 <h1>Latest jobs</h1>
 <% @descriptions.each_with_index do |job, index| %>
-	<p> <%= job %> - <a href="<%= @links[index] %>">Mais informações</a> </p>
-<% end  %>
+	<div class="span3"> 
+		<%= raw(job) %> <br />
+		<a href="<%= @links[index] %>">Mais informações</a>
+	</div>
+<% end %>

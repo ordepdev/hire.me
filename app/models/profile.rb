@@ -26,7 +26,8 @@ class Profile < ActiveRecord::Base
   	end
 
     def users_from_same_location
-      Profile.where("location = ?", location).map(&:user_id)
+      profile = Profile.find_by_user_id(user_id)
+      profiles = Profile.where("location = ?", location).all - [profile]
     end
 
     def self.top_locations
